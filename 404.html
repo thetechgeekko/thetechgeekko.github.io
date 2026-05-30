@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — thetechgeekko</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root { --bg:#0a0a0a; --fg:#f4e9d8; --dim:#a59c8e; --line:#232323; --hot:#ff5b3a; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; height:100%; background: var(--bg); color: var(--fg);
+    font-family:'JetBrains Mono', ui-monospace, monospace; }
+  body { display:grid; place-items:center; padding:32px; text-align:center; }
+  .num { font-family:'Instrument Serif', serif; font-size: clamp(120px, 22vw, 240px);
+    line-height:.9; letter-spacing:-.04em; margin:0; }
+  .num em { font-style: italic; color: var(--hot); }
+  .msg { color: var(--dim); font-size:14px; margin: 20px 0 32px; max-width:520px; }
+  .home {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:12px 22px; border:1px solid var(--line); border-radius:999px;
+    color: var(--fg); text-decoration:none; font-size:13px;
+    transition:.2s;
+  }
+  .home:hover { background:var(--fg); color:var(--bg); }
+  .dot {
+    width:8px; height:8px; border-radius:50%; background:var(--hot);
+    box-shadow:0 0 12px var(--hot);
+    animation: p 2s ease-in-out infinite;
+    display:inline-block;
+  }
+  @keyframes p { 50% { opacity:.4; transform:scale(.8); } }
+</style>
+</head>
+<body>
+  <div>
+    <h1 class="num">4<em>0</em>4</h1>
+    <p class="msg"><span class="dot"></span> &nbsp; This page didn't develop. Negative came out blank.</p>
+    <a class="home" href="/">↩  Back to the studio</a>
+  </div>
+</body>
+</html>
