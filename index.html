@@ -17,16 +17,40 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
+<div class="aurora" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
-<div class="cursor" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true">
+  <span class="cursor-r"></span>
+  <span class="cursor-g"></span>
+  <span class="cursor-b"></span>
+</div>
 
 <nav class="nav">
   <a href="#top" class="logo" data-cursor="zoom">
-    <span class="logo-mark">●</span>
+    <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+      <defs>
+        <linearGradient id="prism" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%"  stop-color="#ff3a3a"/>
+          <stop offset="20%" stop-color="#ff9a3a"/>
+          <stop offset="40%" stop-color="#f4e555"/>
+          <stop offset="55%" stop-color="#5eda86"/>
+          <stop offset="72%" stop-color="#6ab7ff"/>
+          <stop offset="100%" stop-color="#a45dff"/>
+        </linearGradient>
+      </defs>
+      <polygon points="14,3 25,24 3,24" fill="none" stroke="url(#prism)" stroke-width="2" stroke-linejoin="round"/>
+      <line x1="2" y1="14" x2="11" y2="14" stroke="#f4e9d8" stroke-width="1.5"/>
+      <line x1="17" y1="9"  x2="26" y2="6"  stroke="#ff3a3a" stroke-width="1.2"/>
+      <line x1="17" y1="11" x2="26" y2="10" stroke="#ff9a3a" stroke-width="1.2"/>
+      <line x1="17" y1="13" x2="26" y2="14" stroke="#f4e555" stroke-width="1.2"/>
+      <line x1="17" y1="15" x2="26" y2="18" stroke="#5eda86" stroke-width="1.2"/>
+      <line x1="17" y1="17" x2="26" y2="22" stroke="#6ab7ff" stroke-width="1.2"/>
+    </svg>
     <span class="logo-text">thetechgeekko</span>
   </a>
   <div class="nav-links">
     <a href="#work" data-cursor="link">work</a>
+    <a href="#spectrum" data-cursor="link">spectrum</a>
     <a href="#arcade" data-cursor="link">arcade</a>
     <a href="#about" data-cursor="link">about</a>
     <a href="#contact" data-cursor="link">contact</a>
@@ -59,25 +83,42 @@
       <span class="scroll-line"></span>
       <span class="scroll-label">scroll</span>
     </div>
+
+    <div class="spectrum-bar" aria-hidden="true">
+      <div class="spectrum-gradient"></div>
+      <ul class="spectrum-ticks">
+        <li><span>380</span><i></i></li>
+        <li><span>450</span><i></i></li>
+        <li><span>520</span><i></i></li>
+        <li><span>590</span><i></i></li>
+        <li><span>650</span><i></i></li>
+        <li><span>780</span><i></i></li>
+      </ul>
+      <div class="spectrum-cursor"></div>
+      <div class="spectrum-label">
+        <span class="lbl-key">λ — visible light</span>
+        <span class="lbl-val" data-spectrum-readout>520 nm · green</span>
+      </div>
+    </div>
   </section>
 
   <!-- TICKER -->
   <section class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Halide compute</span><span>●</span>
-      <span>RAW pipeline</span><span>●</span>
-      <span>Color science</span><span>●</span>
-      <span>Kotlin · C++ · Python</span><span>●</span>
-      <span>Spectral film emulation</span><span>●</span>
-      <span>Android</span><span>●</span>
-      <span>NDK · JNI</span><span>●</span>
-      <span>Halide compute</span><span>●</span>
-      <span>RAW pipeline</span><span>●</span>
-      <span>Color science</span><span>●</span>
-      <span>Kotlin · C++ · Python</span><span>●</span>
-      <span>Spectral film emulation</span><span>●</span>
-      <span>Android</span><span>●</span>
-      <span>NDK · JNI</span><span>●</span>
+      <span>Halide compute</span><span class="tk-dot tk-r"></span>
+      <span>RAW pipeline</span><span class="tk-dot tk-o"></span>
+      <span>Color science</span><span class="tk-dot tk-y"></span>
+      <span>Kotlin · C++ · Python</span><span class="tk-dot tk-g"></span>
+      <span>Spectral film emulation</span><span class="tk-dot tk-c"></span>
+      <span>Android NDK · JNI</span><span class="tk-dot tk-b"></span>
+      <span>CIE 1931 · ACES</span><span class="tk-dot tk-v"></span>
+      <span>Halide compute</span><span class="tk-dot tk-r"></span>
+      <span>RAW pipeline</span><span class="tk-dot tk-o"></span>
+      <span>Color science</span><span class="tk-dot tk-y"></span>
+      <span>Kotlin · C++ · Python</span><span class="tk-dot tk-g"></span>
+      <span>Spectral film emulation</span><span class="tk-dot tk-c"></span>
+      <span>Android NDK · JNI</span><span class="tk-dot tk-b"></span>
+      <span>CIE 1931 · ACES</span><span class="tk-dot tk-v"></span>
     </div>
   </section>
 
@@ -145,10 +186,80 @@
     </div>
   </section>
 
+  <!-- SPECTRUM -->
+  <section class="section section-spectrum" id="spectrum">
+    <header class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Spectrum</h2>
+      <span class="section-meta">how my pipelines see color</span>
+    </header>
+
+    <p class="spectrum-intro">
+      The math behind <strong>SpectraFilm</strong> &amp; <strong>Filmcam</strong> lives in the 380–780&nbsp;nm range. Slide the marker — read the wavelength, sRGB triplet, and the closest film-stock peak sensitivity.
+    </p>
+
+    <div class="spec-lab">
+      <div class="spec-panel spec-slider-panel">
+        <div class="spec-slider-wrap" data-spec-slider>
+          <div class="spec-rainbow"></div>
+          <input class="spec-slider" type="range" min="380" max="780" step="1" value="555" aria-label="Wavelength in nanometres">
+          <div class="spec-thumb" aria-hidden="true"></div>
+          <ul class="spec-axis" aria-hidden="true">
+            <li style="left:0%"><span>380</span></li>
+            <li style="left:17.5%"><span>450</span></li>
+            <li style="left:35%"><span>520</span></li>
+            <li style="left:52.5%"><span>590</span></li>
+            <li style="left:67.5%"><span>650</span></li>
+            <li style="left:100%"><span>780</span></li>
+          </ul>
+        </div>
+        <div class="spec-readout">
+          <div class="spec-row">
+            <span class="spec-key">λ</span>
+            <span class="spec-val" data-spec-nm>555 nm</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">band</span>
+            <span class="spec-val" data-spec-band>green</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">sRGB</span>
+            <span class="spec-val" data-spec-rgb>173, 255, 0</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">hex</span>
+            <span class="spec-val" data-spec-hex>#adff00</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">closest peak</span>
+            <span class="spec-val" data-spec-stock>Portra G layer</span>
+          </div>
+          <div class="spec-swatch" data-spec-swatch></div>
+        </div>
+      </div>
+
+      <div class="spec-panel spec-curves-panel">
+        <header class="spec-curves-head">
+          <h3 class="spec-curves-title">Spectral response</h3>
+          <div class="spec-legend">
+            <button class="lg-pill is-on" data-stock="portra"><i style="background:#ff8e6a"></i> Portra 400</button>
+            <button class="lg-pill" data-stock="ektar"><i style="background:#ffd25e"></i> Ektar 100</button>
+            <button class="lg-pill" data-stock="velvia"><i style="background:#7fffb8"></i> Velvia 50</button>
+            <button class="lg-pill" data-stock="hp5"><i style="background:#9ad1ff"></i> HP5+</button>
+          </div>
+        </header>
+        <div class="spec-canvas-wrap">
+          <canvas id="spec-curves" width="800" height="380"></canvas>
+        </div>
+        <p class="spec-foot">Illustrative — not a published density curve.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ARCADE -->
   <section class="section section-arcade" id="arcade">
     <header class="section-head">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <h2 class="section-title">Arcade</h2>
       <span class="section-meta">three small games</span>
     </header>
@@ -216,7 +327,7 @@
   <!-- ABOUT -->
   <section class="section section-about" id="about">
     <header class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2 class="section-title">About</h2>
       <span class="section-meta">a quick read</span>
     </header>
@@ -255,7 +366,7 @@
   <!-- CONTACT -->
   <section class="section section-contact" id="contact">
     <header class="section-head">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 class="section-title">Contact</h2>
       <span class="section-meta">say hi</span>
     </header>
